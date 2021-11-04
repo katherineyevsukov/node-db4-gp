@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
@@ -22,10 +22,25 @@ exports.up = function(knex) {
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
+      table.integer('zoo_id')
+        .unsigned()
+        .notNullable()
+        .references('zoo_id')
+        .inTable('zoos')
+        .onDelete('RESTRICT')
+        .onUpdate('RESTRICT')
+
+      table.integer('animal_id')
+        .unsigned()
+        .notNullable()
+        .references('animal_id')
+        .inTable('animals')
+        .onDelete('RESTRICT')
+        .onUpdate('RESTRICT')
     })
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema
     .dropTableIfExists('zoo_animals')
     .dropTableIfExists('animals')
