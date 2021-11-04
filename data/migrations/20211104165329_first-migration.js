@@ -19,5 +19,5 @@ exports.down = function(knex) {
     .dropTableIfExists('zoo_animals')
     .dropTableIfExists('animals')
     .dropTableIfExists('species')
-    .dropTableIfExists('species')
+    .dropTableIfExists('zoos')
 };
