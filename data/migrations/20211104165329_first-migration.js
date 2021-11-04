@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('zoos')
-    .createTable('')
+    .createTable('species')
     .createTable('')
     .createTable('')
 };
