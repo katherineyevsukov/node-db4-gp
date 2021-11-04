@@ -15,5 +15,9 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  // BUG ALERT 
+  return knex.schema
+    .dropTableIfExists('zoos')
+    .dropTableIfExists()
+    .dropTableIfExists()
+    .dropTableIfExists()
 };
