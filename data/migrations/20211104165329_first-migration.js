@@ -29,7 +29,6 @@ exports.up = function (knex) {
         .inTable('zoos')
         .onDelete('RESTRICT')
         .onUpdate('RESTRICT')
-
       table.integer('animal_id')
         .unsigned()
         .notNullable()
