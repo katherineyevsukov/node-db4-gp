@@ -17,7 +17,7 @@ exports.up = function(knex) {
         .notNullable()
         .references('species_id')
         .inTable('species')
-        .onDelete('RESTRICT') // shoul
+        .onDelete('RESTRICT') // should deleting a species cause animals of that species to be deleted?
         .onUpdate('RESTRICT')
     })
     .createTable('zoo_animals', table => {
