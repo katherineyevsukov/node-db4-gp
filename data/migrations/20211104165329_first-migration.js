@@ -15,6 +15,8 @@ exports.up = function(knex) {
       table.integer('species_id')
         .unsigned()
         .notNullable()
+        .references('species_id')
+        .inTable('species')
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
