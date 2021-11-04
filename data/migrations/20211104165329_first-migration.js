@@ -16,7 +16,7 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfExists('zoos')
+    .dropTableIfExists('zoo_animals')
     .dropTableIfExists()
     .dropTableIfExists()
     .dropTableIfExists()
