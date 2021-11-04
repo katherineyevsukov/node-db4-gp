@@ -17,8 +17,8 @@ exports.up = function (knex) {
         .notNullable()
         .references('species_id')
         .inTable('species')
-        .onDelete('RESTRICT') // should deleting a species cause animals of that species to be deleted?
-        .onUpdate('RESTRICT')
+        .onDelete('CASCADE') // should deleting a species cause animals of that species to be deleted?
+        .onUpdate('CASCADE')
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
@@ -27,15 +27,15 @@ exports.up = function (knex) {
         .notNullable()
         .references('zoo_id')
         .inTable('zoos')
-        .onDelete('RESTRICT')
-        .onUpdate('RESTRICT')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
       table.integer('animal_id')
         .unsigned()
         .notNullable()
         .references('animal_id')
         .inTable('animals')
-        .onDelete('RESTRICT')
-        .onUpdate('RESTRICT')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
     })
 };
 
